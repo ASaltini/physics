@@ -23,16 +23,27 @@ There is several ways to classify constraints.
   \end{itemize}
   \item Time-dependence:
   \begin{itemize}
-    \item \textbf{Rheonomic:} the constraint depends explicitly on time:
-    \[\pderiv{f}{t} \neq 0\]
-    \item \textbf{Scleronomic:} the constraint does not depend explicity on time:
-    \[\pderiv{f}{t} = 0 \quad \Rightarrow \quad f = f(\vv{q},\vd{q})\]
+    \item \textbf{Scleronomic:} the constraint does not depend explicity on time
+    and can therefore be written as \(f(\vv{q},\vd{q})\).
+      \item \textbf{Rheonomic:} the constraint depends explicitly on time.
   \end{itemize}
   \item Velocity-dependence:
   \begin{itemize}
-    \item \textbf{Nonholonomic:} the constraint depends explicitly on velocities:
-    \[\pderiv{f}{\vd{q}} \neq 0\]
-    \item \textbf{Holonomic:} the constraint does not depend explicity on time:
-    \[\pderiv{f}{\vd{q}} = 0 \quad \Rightarrow \quad f = f(\vv{q},t)\]
+    \item \textbf{Holonomic:} the constraint does not depend explicity on velocity,
+    or depends on velocity in a way that can be integrated and reduced to a dependence
+    on time and coordinates.
+    This means there exists a constraint function \(g(\vv{q},t)\) that is equivalent
+    to the original, that is it allows or forbids exactly the same configurations
+    as the original constraint.
+    \item \textbf{Anholonomic (nonholonomic):} the constraint depends on velocities
+    in a manner that cannot be integrated and reduced to a dependence on time and
+    coordinates.
   \end{itemize}
+
+\section{Udwadia-Kalaba equation [to be moved]}
+
+Where \(\vv{Q}\) is the generalised force and \(\mathcal{Q}\) is the generalised constraint force.
+The matrix \(M\) is symmetric and positive semi-definite.
+%
+\[M(\vv{q},t) \; \vdd{q} = \vv{Q}(\vv{q},\vd{q},t) + \mathcal{Q}(\vv{q},\vd{q},t)\]
 \end{itemize}
