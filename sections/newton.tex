@@ -13,15 +13,19 @@ of the table, but also on the weight of the book and other forces that might be
 pushing the book towards the table.
 
 This gives us a new way to categorise constraints, based on their reaction forces.
-Here we denote with \(\vv{\Phi}_s\) the force acting on the \(s\)-th particle,
-the coordinates of which are given by \(\vv{r}_s\).
+Here we assume to have a system composed by several objects, and we denote with
+\(\vv{\Phi}_s\) the force acting on the \(s\)-th object, the coordinates of which
+are given by \(\vv{r}_s\).
 %
 \begin{itemize}
   \item \textbf{Smooth:} there are no components of the reaction force along the
-  unconstrained directions. Mathematically, this means that the constraint force
-  is in the same direction as the gradient of the constraint function:
+  unconstrained directions, such forces are therefore unable to perform any work,
+  being perpendicular to all allowed displacements.
+  Mathematically, this means that the constraint force is in the same direction
+  as the gradient of the constraint function:
   \[\cpd{\vv{\Phi}_s}{\pderiv{f}{\vv{r}_s}} = 0\]
   \item \textbf{Rough:} the reaction force may have components along the unconstrained
-  directions. This is usually the case in systems where dry friction is present.
+  directions.
+  This is usually the case in systems where dry friction is present.
   \[\cpd{\vv{\Phi}_s}{\pderiv{f}{\vv{r}_s}} \neq 0\]
 \end{itemize}
