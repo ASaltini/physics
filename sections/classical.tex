@@ -1,0 +1,38 @@
+\chapter{General concepts}
+
+\section{Constraints}
+
+A \textbf{constraint} is a relation between coordinates and velocities, reducing
+the number of degrees of freedom of a system.
+Using a set \(\vv{q}\) of generalised coordinates, it can be represented as an
+equality or inequality involving a \textbf{constraint function} \(f(\vv{q},\vd{q},t)\).
+
+There is several ways to classify constraints.
+\begin{itemize}
+  \item Directionality:
+  \begin{itemize}
+    \item \textbf{Unilateral:} the constraint may prevent displacements in one direction, but
+    not necessarily in the opposite direction. These constraints generally represent
+    bodies that cannot be penetrated. Mathematically, they are represented by
+    inequalities: \(f(\vv{q},\vd{q},t) \geq 0\)
+    \item \textbf{Bilateral:} if the constraint prevents displacements in one direction,
+    it must prevent an equivalent displacement in the opposite direction, as well.
+    These constraints generally represent bodies moving along a rail or a similar
+    object. Mathematically, they are represented by
+    equalities: \(f(\vv{q},\vd{q},t) = 0\)
+  \end{itemize}
+  \item Time-dependence:
+  \begin{itemize}
+    \item \textbf{Rheonomic:} the constraint depends explicitly on time:
+    \[\pderiv{f}{t} \neq 0\]
+    \item \textbf{Scleronomic:} the constraint does not depend explicity on time:
+    \[\pderiv{f}{t} = 0 \quad \Rightarrow \quad f = f(\vv{q},\vd{q})\]
+  \end{itemize}
+  \item Velocity-dependence:
+  \begin{itemize}
+    \item \textbf{Nonholonomic:} the constraint depends explicitly on velocities:
+    \[\pderiv{f}{\vd{q}} \neq 0\]
+    \item \textbf{Holonomic:} the constraint does not depend explicity on time:
+    \[\pderiv{f}{\vd{q}} = 0 \quad \Rightarrow \quad f = f(\vv{q},t)\]
+  \end{itemize}
+\end{itemize}

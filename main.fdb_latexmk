@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1452091110 "main.tex" "main.pdf" "main" 1452091112
+["pdflatex"] 1452095548 "main.tex" "main.pdf" "main" 1452095567
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -107,15 +107,16 @@
   "/usr/local/texlive/2015/texmf-dist/web2c/texmf.cnf" 1445297872 31985 3b2aa1e4e73426e2011ec5231ac92e0f ""
   "/usr/local/texlive/2015/texmf-var/web2c/xetex/xelatex.fmt" 1450124146 3469202 64109c8f5eb0201a887b95af23026760 ""
   "/usr/local/texlive/2015/texmf.cnf" 1445689557 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "headers/commands.tex" 1452089911 70 34d7f68322c1e55febd186fa3962059a ""
-  "headers/default.tex" 1452091108 850 4a190327387b7747baf3fb53a6f46d1b ""
+  "headers/commands.tex" 1452095237 187 84a04ecbc9220b707c07b5c8977f595e ""
+  "headers/default.tex" 1452093227 917 ca91e1e485739e09b2cc23992a35dd65 ""
   "headers/si.tex" 1446492205 396 9b8c5e8ad3a5e2e50c88095ab6121218 ""
-  "main.aux" 1452091112 1151 0054348f3af9c7c26e2f0d944b10c0fd ""
-  "main.out" 1452091112 162 85968d17e66a4559c9cb9cd8e26c8b48 ""
-  "main.tex" 1452090756 313 ca0211852b9592667779742e8dc04eb5 ""
-  "sections/newton.tex" 1452091090 541 5d8ee484d608a42921b2eb8c79f9ae19 ""
+  "main.aux" 1452095550 1414 763012d8e64cf64dc16ec4fb9b55a089 ""
+  "main.out" 1452095550 292 97932bd94ebff99444a5fc938e2e1715 ""
+  "main.tex" 1452095432 363 0b32298e8160f7b8a717ce8969f1142a ""
+  "sections/classical.tex" 1452095448 1779 a9db3812c65d6b863ba0e614def538a5 ""
+  "sections/newton.tex" 1452095547 1393 b92390964cd55c3a17b4d238fdaccda8 ""
   (generated)
-  "main.aux"
+  "main.out"
   "main.log"
   "main.pdf"
-  "main.out"
+  "main.aux"
