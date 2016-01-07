@@ -29,15 +29,15 @@ There is several ways to classify constraints.
   \end{itemize}
   \item Velocity-dependence:
   \begin{itemize}
-    \item \textbf{Holonomic:} the constraint does not depend explicity on velocity,
-    or depends on velocity in a way that can be integrated and reduced to a dependence
-    on time and coordinates.
-    This means there exists a constraint function \(g(\vv{q},t)\) that is equivalent
-    to the original, that is it allows or forbids exactly the same configurations
-    as the original constraint.
-    \item \textbf{Anholonomic (nonholonomic):} the constraint depends on velocities
-    in a manner that cannot be integrated and reduced to a dependence on time and
-    coordinates.
+    \item \textbf{Geometric:} the constraint does not depend explicity on velocity
+    and can therefore be written as \(f(\vv{q},t)\).
+    \item \textbf{Kinetic:} the constraint depends explicitly on velocity.
+    \item \textbf{Integrable:} the constraint depends on velocity, but it is
+    \emph{equivalent} to a geometric constraint; that is to say, there exists a
+    geometric constraint that identifies the same subspace of allowed configurations.
+    \item \textbf{Holonomic:} the constraint is geometric or integrable.
+    \item \textbf{Anholonomic (nonholonomic):} the constraint is neither geometric,
+    nor integrable. Unilateral constraints are generally considered anholonomic.
   \end{itemize}
 
 \section{Udwadia-Kalaba equation [to be moved]}
