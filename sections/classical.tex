@@ -1,20 +1,92 @@
 \chapter{General concepts}
 
+\section{Generalised coordinates}
+
+A set \(\{ q_i \}\) of \textbf{generalised coordinates} is a set of values that
+identify the state of a physical system.
+It can be useful to treat the set of generalised coordinates as a vector \(\vv{q}\).
+It should be kept in mind that this is not a vector in the physical sense, so it
+does not necessarily behave as expected under spatial transformations, it is merely
+represented as such for the sake of mathematical convenience.
+
+The least number of generalised coordinates that are necessary to unequivocably
+identify the state of a system is the number of \textbf{degrees of freedom} of
+the system.
+A physical system composed of \(N\) particles in 3 dimensions has, in the most
+general case, \(3N\) degrees of freedom, as it is necessary to give the position
+\(\vv{r}_s\) of each particle as a set of cartesian coordinates.
+However, it is often the case that particles are not independent of each other;
+consider the following examples:
+\begin{itemize}
+  \item The state of a rigid body can be described by simply giving the
+  position of one of its points (3 vector components), and its orientation in space
+  (3 angles), resulting in a total of only 6 degrees of freedom.
+  \item The state of a thermodynamical system at equilibrium is described by its
+  pressure and temperature, resulting in a total of only 2 degrees of freedom.
+\end{itemize}
+
+In a majority of cases, for each particle there exists an invertible map
+\(\vv{r}_s = \vv{r}_s(\vv{q},t)\), that allows us to find the position of each
+constituent of the system once we know the generalised coordinates.
+This allows us to express \textbf{kinematic displacements} as
+\begin{equation}
+  \de\vv{r}_s = \dpd{\pderiv{\vv{r}_s}{\vv{q}}}{\de\vv{q}} + \pderiv{\vv{r}_s}{t} \, \de t
+  \label{eq::kine-displacements}
+\end{equation}
+these are to be contrasted with \textbf{virtual displacements}
+\begin{equation}
+  \di\vv{r}_s = \dpd{\pderiv{\vv{r}_s}{\vv{q}}}{\de\vv{q}}
+  \label{eq::virtual-displacements}
+\end{equation}
+The term \emph{virtual} comes from the fact that they happen at a fixed time
+(they are obtained from real displacements by setting \(\de t = 0\)), but there
+can obviously be no motion without passage of time, so the displacement is simply
+a mathematical construct.
+
+The time derivatives of generalised coordinates are called \textbf{generalised
+velocities} (\(\vd{q}\)), and \textbf{generalised accelerations} (\(\vdd{q}\)).
+As with generalised coordinates, it is possible to find the positions and
+accelerations of each particle.
+This is complicated by the fact that, while the cartesian coordinates only depend
+on the generalised coordinates, it is not generally true that the cartesian velocities
+and acceleration depend solely on their generalised equivalent, but rather
+\(\vd{r}_s = \vd{r}_s(\vd{q},\vv{q},t)\) and \(\vdd{r}_s = \vdd{r}_s(\vdd{q},\vd{q},\vv{q},t)\).
+
+We can compute the cartesian velocities by taking \eqref{eq::kine-displacements}
+and using it to compute \(\vd{r}_s\)
+\begin{equation}
+  \vd{r}_s = \dpd{\pderiv{\vv{r}_s}{\vv{q}}}{\vd{q}} + \pderiv{\vv{r}_s}{t}
+  \label{eq::cart-velocities}
+\end{equation}
+from this expression we observe that the cartesian velocities are linear in the
+generalised velocities (while this is not generally true for the coordinates).
+
+As with displacement, we can define a \textbf{kinematic differential of velocity}
+\[\de\vd{r}_s = \dpd{\pderiv{\vd{r}_s}{\vd{q}}}{\de\vd{q}} + \dpd{\pderiv{\vd{r}_s}{\vv{q}}}{\de\vv{q}} + \pderiv{\vd{r}_s}{t} \, \de t\]
+and a \textbf{virtual or Jourdain differential of velocity}
+\[\di\vd{r}_s = \dpd{\pderiv{\vd{r}_s}{\vd{q}}}{\de\vd{q}}\]
+that is obtained from the former by setting \(\de\vv{q} = 0\) and \(\de t = 0\).
+By observing \eqref{eq::cart-velocities} we can compute the various terms in
+\(\de\vd{r}_s\), taking special note of the one that also appears in \(\di\vd{r}_s\).
+\[\pderiv{\vd{r}_s}{\vd{q}} = \pderiv{\vv{r}_s}{\vv{q}} \qquad
+\pderiv{\vd{r}_s}{\vv{q}} = \pderiv[2]{\vv{r}}{\vv{q}} \cdot \vd{q} + \pderiv{\vv{r}}{\vv{q},t} \qquad
+\pderiv{\vd{r}_s}{t} = \pderiv{\vv{r}}{\vv{q},t} \cdot \vd{q} + \pderiv[2]{\vv{r}}{t}\]
+
+
 \section{Constraints}
 
-A \textbf{constraint} is a relation between coordinates and velocities, reducing
-the number of degrees of freedom of a system.
-Using a set \(\vv{q}\) of generalised coordinates, it can be represented as an
-equality or inequality involving a \textbf{constraint function} \(f(\vv{q},\vd{q},t)\).
+A \textbf{constraint} is a relation between coordinates and velocities.
+Using a set \(\vv{q}\) of generalised coordinates, a constrant can be represented
+as an equality or inequality involving a \textbf{constraint function} \(f(\vv{q},\vd{q},t)\).
 
 There is several ways to classify constraints.
 \begin{itemize}
   \item Directionality:
   \begin{itemize}
-    \item \textbf{Unilateral:} the constraint may prevent displacements in one direction, but
-    not necessarily in the opposite direction. These constraints generally represent
-    bodies that cannot be penetrated. Mathematically, they are represented by
-    inequalities: \(f(\vv{q},\vd{q},t) \geq 0\)
+    \item \textbf{Unilateral:} the constraint may prevent displacements in one
+    direction, but not necessarily in the opposite direction. These constraints
+    generally represent bodies that cannot be penetrated. Mathematically, they
+    are represented by inequalities: \(f(\vv{q},\vd{q},t) \geq 0\)
     \item \textbf{Bilateral:} if the constraint prevents displacements in one direction,
     it must prevent an equivalent displacement in the opposite direction, as well.
     These constraints generally represent bodies moving along a rail or a similar
@@ -32,18 +104,32 @@ There is several ways to classify constraints.
     \item \textbf{Geometric:} the constraint does not depend explicity on velocity
     and can therefore be written as \(f(\vv{q},t)\).
     \item \textbf{Kinetic:} the constraint depends explicitly on velocity.
-    \item \textbf{Integrable:} the constraint depends on velocity, but it is
-    \emph{equivalent} to a geometric constraint; that is to say, there exists a
+    \item \textbf{Integrable:} the constraint is kinetic, but it is
+    \emph{equivalent} to a geometric constraint. That is to say, there exists a
     geometric constraint that identifies the same subspace of allowed configurations.
     \item \textbf{Holonomic:} the constraint is geometric or integrable.
     \item \textbf{Anholonomic (nonholonomic):} the constraint is neither geometric,
     nor integrable. Unilateral constraints are generally considered anholonomic.
   \end{itemize}
+\end{itemize}
+
+A single bilateral holonomic constraint reduces the number of degrees of freedom
+of a physical system by one. Bilateral holonomic constraints can always be expressed
+as \(f(\vv{q},t) = 0\), we now pick a specific \(q_k\) and denote as \(\vv{\varrho}_k\)
+the set of generalised coordinates \emph{except} \(q_k\), so that we can write
+the constraint as \(f(q_k,\vv{\varrho}_k,t) = 0\).
+Invoking Dini's implicit function theorem, there exists a function \(g(\vv{\varrho}_k,t)\)
+such that \(f(g(\vv{\varrho}_k,t),\vv{\varrho}_k,t) = 0\).
+Since the constraint must be satisfied, this forces us to choose
+\(q_k = g(\vv{\varrho}_k,t)\).
+The \(\vv{\varrho}_k\) are therefore the generalised coordinates for a new,
+unconstrained system, with one fewer degree of freedom than the original.
+
 
 \section{Udwadia-Kalaba equation [to be moved]}
 
-Where \(\vv{Q}\) is the generalised force and \(\mathcal{Q}\) is the generalised constraint force.
+Where \(\vv{Q}\) is the generalised force and \(\mathcal{Q}\) is the generalised
+constraint force.
 The matrix \(M\) is symmetric and positive semi-definite.
 %
 \[M(\vv{q},t) \; \vdd{q} = \vv{Q}(\vv{q},\vd{q},t) + \mathcal{Q}(\vv{q},\vd{q},t)\]
-\end{itemize}
