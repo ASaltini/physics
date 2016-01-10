@@ -52,25 +52,45 @@ on the generalised coordinates, it is not generally true that the cartesian velo
 and acceleration depend solely on their generalised equivalent, but rather
 \(\vd{r}_s = \vd{r}_s(\vd{q},\vv{q},t)\) and \(\vdd{r}_s = \vdd{r}_s(\vdd{q},\vd{q},\vv{q},t)\).
 
-We can compute the cartesian velocities by taking \eqref{eq::kine-displacements}
-and using it to compute \(\vd{r}_s\)
+We can compute the cartesian velocities \(\vd{r}_s\) by taking \eqref{eq::kine-displacements}.
 \begin{equation}
   \vd{r}_s = \dpd{\pderiv{\vv{r}_s}{\vv{q}}}{\vd{q}} + \pderiv{\vv{r}_s}{t}
   \label{eq::cart-velocities}
 \end{equation}
-from this expression we observe that the cartesian velocities are linear in the
+From this expression we observe that the cartesian velocities are linear in the
 generalised velocities (while this is not generally true for the coordinates).
 
 As with displacement, we can define a \textbf{kinematic differential of velocity}
-\[\de\vd{r}_s = \dpd{\pderiv{\vd{r}_s}{\vd{q}}}{\de\vd{q}} + \dpd{\pderiv{\vd{r}_s}{\vv{q}}}{\de\vv{q}} + \pderiv{\vd{r}_s}{t} \, \de t\]
+\begin{equation}
+  \de\vd{r}_s = \dpd{\pderiv{\vd{r}_s}{\vd{q}}}{\de\vd{q}} + \dpd{\pderiv{\vd{r}_s}{\vv{q}}}{\de\vv{q}} + \pderiv{\vd{r}_s}{t} \, \de t
+  \label{eq::kine-velocities}
+\end{equation}
 and a \textbf{virtual or Jourdain differential of velocity}
-\[\di\vd{r}_s = \dpd{\pderiv{\vd{r}_s}{\vd{q}}}{\de\vd{q}}\]
+\begin{equation}
+  \di\vd{r}_s = \dpd{\pderiv{\vd{r}_s}{\vd{q}}}{\de\vd{q}}
+  \label{eq::jourdain-velocities}
+\end{equation}
 that is obtained from the former by setting \(\de\vv{q} = 0\) and \(\de t = 0\).
 By observing \eqref{eq::cart-velocities} we can compute the various terms in
-\(\de\vd{r}_s\), taking special note of the one that also appears in \(\di\vd{r}_s\).
+\(\de\vd{r}_s\), that will be useful in computing the equation for the accelerations.
+We take special note of the term that also appears in \(\di\vd{r}_s\).
 \[\pderiv{\vd{r}_s}{\vd{q}} = \pderiv{\vv{r}_s}{\vv{q}} \qquad
 \pderiv{\vd{r}_s}{\vv{q}} = \pderiv[2]{\vv{r}}{\vv{q}} \cdot \vd{q} + \pderiv{\vv{r}}{\vv{q},t} \qquad
 \pderiv{\vd{r}_s}{t} = \pderiv{\vv{r}}{\vv{q},t} \cdot \vd{q} + \pderiv[2]{\vv{r}}{t}\]
+
+We now take \eqref{eq::kine-velocities} and use it to compute the cartesian
+accelerations \(\vdd{r}_s\).
+\begin{align}
+  \nonumber \vdd{r}_s &= \dpd{\pderiv{\vd{r}_s}{\vd{q}}}{\vdd{q}} +
+          \dpd{\pderiv{\vd{r}_s}{\vv{q}}}{\vd{q}} + \pderiv{\vd{r}_s}{t} \\
+            \vdd{r}_s &= \dpd{\pderiv{\vv{r}_s}{\vv{q}}}{\vdd{q}} +
+          \dpd{\dpd{\pderiv[2]{\vd{r}_s}{\vv{q}}}{\vd{q}}}{\vd{q}} +
+          2 \pderiv{\vv{r}_s}{\vv{q},t} \cdot \vd{q} + \pderiv[2]{\vd{r}_s}{t}
+  \label{eq::cart-accelerations}
+\end{align}
+Here we see that the cartesian accelerations depend linearly on generalised
+accelerations and may have both a quadratic and a linear term in the generalised
+  velocities.
 
 
 \section{Constraints}
