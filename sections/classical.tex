@@ -155,6 +155,15 @@ The matrix \(M\) is symmetric and positive semi-definite.
 %
 \[M(\vv{q},t) \; \vdd{q} = \vv{Q}(\vv{q},\vd{q},t) + \mathcal{Q}(\vv{q},\vd{q},t)\]
 
+\section{Principle of least constraint}
+
+The \textbf{principle of least constraint} states that function \(\mathcal{C}\)
+defined as
+
+\[\mathcal{C} = \frac{1}{2} \Sum{m_s \nrm{\vdd{r}_s - \frac{\vv{F}_s}{m_s}}^2 }{s,1,N}\]
+
+must be minimised by the equations of motion.
+
 \section{Jourdain's principle}
 
 D'Alembert principle only applies to holonomic systems, a more general principle
@@ -168,3 +177,18 @@ By writing \(\vv{\Phi}_s\) out as \(m_s \vdd{r}_s - \vv{F}_s\) we obtain the
 statement of \textbf{Jourdain's principle}.
 
 \[\Sum{\dpd{\of{m_s \vdd{r}_s - \vv{F}_s}}{\di\vd{r}_s}}{s,1,N} = 0\]
+
+\section{Gauss-Gibbs principle}
+
+Another principle can be obtained by working with virtual changes in acceleration,
+this is known as the \textbf{Gauss-Gibbs principle}.
+
+\[\Sum{\dpd{\of{m_s \vdd{r}_s - \vv{F}_s}}{\di\vdd{r}_s}}{s,1,N} = 0\]
+
+\section{Mangeron-Deleanu principle}
+
+The most general case is known as \textbf{Mangeron-Deleanu principle} and is
+stated in terms of a virtual variation of the \(n\)-th time derivative of the
+cartesian positions.
+
+\[\Sum{\dpd{\of{m_s \vdd{r}_s - \vv{F}_s}}{\di\vv{r}_s^{(n)}}}{s,1,N} = 0\]
