@@ -155,14 +155,29 @@ The matrix \(M\) is symmetric and positive semi-definite.
 %
 \[M(\vv{q},t) \; \vdd{q} = \vv{Q}(\vv{q},\vd{q},t) + \mathcal{Q}(\vv{q},\vd{q},t)\]
 
-\section{Principle of least constraint}
+\section{Gauss's principle of least constraint}
 
-The \textbf{principle of least constraint} states that function \(\mathcal{C}\)
+The \textbf{Gauss's principle of least constraint} states that the function \(\mathcal{C}\)
 defined as
-
-\[\mathcal{C} = \frac{1}{2} \Sum{m_s \nrm{\vdd{r}_s - \frac{\vv{F}_s}{m_s}}^2 }{s,1,N}\]
+%
+\begin{equation}
+  \mathcal{C} = \frac{1}{2} \Sum{m_s \nrm{\vdd{r}_s - \frac{\vv{F}_s}{m_s}}^2 }{s,1,N}
+  \label{eq::least-constraint}
+\end{equation}
 
 must be minimised by the equations of motion.
+Alternative ways to write \(\mathcal{C}\) include
+%
+\begin{subequations}
+\begin{align}
+  \label{eq::least-constraint1}
+  \mathcal{C} &= \frac{1}{2} \Sum{m_s \dpd{\of{\vdd{r}_s - \frac{\vv{F}_s}{m_s}}}{\of{\vdd{r}_s - \frac{\vv{F}_s}{m_s}}}}{s,1,N} \\
+  \label{eq::least-constraint2}
+  \mathcal{C} &= \frac{1}{2} \Sum{\of{m_s \dpd{\vdd{r}_s}{\vdd{r}_s} - 2 \dpd{\vv{F}_s}{\vdd{r}_s} + \frac{\dpd{\vv{F}_s}{\vv{F}_s}}{m_s}}}{s,1,N} \\
+  \label{eq::least-constraint3}
+  \mathcal{C} &= \frac{1}{2} \Sum{\of{m_s \nrm{\vdd{r}_s}^2 - 2 \dpd{\vv{F}_s}{\vdd{r}_s} + \frac{\nrm{\vv{F}_s}^2}{m_s}}}{s,1,N}
+\end{align}
+\end{subequations}
 
 \section{Jourdain's principle}
 
@@ -175,14 +190,14 @@ Much like the virtual displacements, the virtual velocity differential must also
 lie on the constraint surface, so that \(\dpd{\vv{\Phi}_s}{\di\vd{r}_s} = 0\).
 By writing \(\vv{\Phi}_s\) out as \(m_s \vdd{r}_s - \vv{F}_s\) we obtain the
 statement of \textbf{Jourdain's principle}.
-
+%
 \[\Sum{\dpd{\of{m_s \vdd{r}_s - \vv{F}_s}}{\di\vd{r}_s}}{s,1,N} = 0\]
 
 \section{Gauss-Gibbs principle}
 
 Another principle can be obtained by working with virtual changes in acceleration,
 this is known as the \textbf{Gauss-Gibbs principle}.
-
+%
 \[\Sum{\dpd{\of{m_s \vdd{r}_s - \vv{F}_s}}{\di\vdd{r}_s}}{s,1,N} = 0\]
 
 \section{Mangeron-Deleanu principle}
@@ -190,5 +205,28 @@ this is known as the \textbf{Gauss-Gibbs principle}.
 The most general case is known as \textbf{Mangeron-Deleanu principle} and is
 stated in terms of a virtual variation of the \(n\)-th time derivative of the
 cartesian positions.
-
+%
 \[\Sum{\dpd{\of{m_s \vdd{r}_s - \vv{F}_s}}{\di\vv{r}_s^{(n)}}}{s,1,N} = 0\]
+
+\section{Appell's equation}
+
+We take the principle of least constraint (\eqref{eq::least-constraint3}) and we
+define the \textbf{Appellian} \(\mathcal{A}\) as
+%
+\[\mathcal{A} = \frac{1}{2} \Sum{m_s \nrm{\vdd{r}_s}^2}{s,1,N}\]
+%
+which we recognise as the first term in \(\mathcal{C}\).
+\[\mathcal{C} = \mathcal{A} + \frac{1}{2} \Sum{\of{\frac{\nrm{\vv{F}_s}^2}{m_s} - 2 \dpd{\vv{F}_s}{\vdd{r}_s}}}{s,1,N}\]
+%
+Since \(\mathcal{C}\) must be minimal, its derivative with regards to the
+\(\vdd{q}\) must be zero.
+Assuming the forces are adequately well-behaved (it is sufficient that they do
+not depend on the accelerations), their derivative with regards to the \(\vdd{q}\)
+will also be zero.
+We also recall \eqref{eq::cart-accelerations} to find the derivative of the
+cartesian accelerations.
+\[0 = \pderiv{\mathcal{C}}{\vdd{q}} = \pderiv{\mathcal{A}}{\vdd{q}} - \Sum{\dpd{\pderiv{\vdd{r}_s}{\vdd{q}}}{\vv{F}_s}}{s,1,N}
+  = \pderiv{\mathcal{A}}{\vdd{q}} - \Sum{\dpd{\pderiv{\vv{r}_s}{\vv{q}}}{\vv{F}_s}}{s,1,N}\]
+The second term gives the generalised forces \(\vv{Q}\), we now have \textbf{Appell's equation}.
+%
+\[\vv{Q} = \pderiv{\mathcal{A}}{\vdd{q}}\]
