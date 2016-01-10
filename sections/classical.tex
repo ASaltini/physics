@@ -9,7 +9,7 @@ It should be kept in mind that this is not a vector in the physical sense, so it
 does not necessarily behave as expected under spatial transformations, it is merely
 represented as such for the sake of mathematical convenience.
 
-The least number of generalised coordinates that are necessary to unequivocably
+The least number of generalised coordinates that are necessary to uniquely
 identify the state of a system is the number of \textbf{degrees of freedom} of
 the system.
 A physical system composed of \(N\) particles in 3 dimensions has, in the most
@@ -84,8 +84,8 @@ accelerations \(\vdd{r}_s\).
   \nonumber \vdd{r}_s &= \dpd{\pderiv{\vd{r}_s}{\vd{q}}}{\vdd{q}} +
           \dpd{\pderiv{\vd{r}_s}{\vv{q}}}{\vd{q}} + \pderiv{\vd{r}_s}{t} \\
             \vdd{r}_s &= \dpd{\pderiv{\vv{r}_s}{\vv{q}}}{\vdd{q}} +
-          \dpd{\dpd{\pderiv[2]{\vd{r}_s}{\vv{q}}}{\vd{q}}}{\vd{q}} +
-          2 \pderiv{\vv{r}_s}{\vv{q},t} \cdot \vd{q} + \pderiv[2]{\vd{r}_s}{t}
+          \dpd{\dpd{\pderiv[2]{\vv{r}_s}{\vv{q}}}{\vd{q}}}{\vd{q}} +
+          2 \pderiv{\vv{r}_s}{\vv{q},t} \cdot \vd{q} + \pderiv[2]{\vv{r}_s}{t}
   \label{eq::cart-accelerations}
 \end{align}
 Here we see that the cartesian accelerations depend linearly on generalised
@@ -145,11 +145,26 @@ Since the constraint must be satisfied, this forces us to choose
 The \(\vv{\varrho}_k\) are therefore the generalised coordinates for a new,
 unconstrained system, with one fewer degree of freedom than the original.
 
+\chapter{Alternative formulations [to be moved]}
 
-\section{Udwadia-Kalaba equation [to be moved]}
+\section{Udwadia-Kalaba equation}
 
 Where \(\vv{Q}\) is the generalised force and \(\mathcal{Q}\) is the generalised
 constraint force.
 The matrix \(M\) is symmetric and positive semi-definite.
 %
 \[M(\vv{q},t) \; \vdd{q} = \vv{Q}(\vv{q},\vd{q},t) + \mathcal{Q}(\vv{q},\vd{q},t)\]
+
+\section{Jourdain's principle}
+
+D'Alembert principle only applies to holonomic systems, a more general principle
+that can also be applied to anholonomic system can be obtained by working with the
+virtual velocity differentials from \ref{eq::jourdain-velocities}.
+As it was the case with d'Alembert's principle, if the boundaries are smooth, then
+the constraint forces must be normal to the constraint surface.
+Much like the virtual displacements, the virtual velocity differential must also
+lie on the constraint surface, so that \(\dpd{\vv{\Phi}_s}{\di\vd{r}_s} = 0\).
+By writing \(\vv{\Phi}_s\) out as \(m_s \vdd{r}_s - \vv{F}_s\) we obtain the
+statement of \textbf{Jourdain's principle}.
+
+\[\Sum{\dpd{\of{m_s \vdd{r}_s - \vv{F}_s}}{\di\vd{r}_s}}{s,1,N} = 0\]
