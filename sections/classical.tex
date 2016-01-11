@@ -65,18 +65,17 @@ As with displacement, we can define a \textbf{kinematic differential of velocity
   \de\vd{r}_s = \dpd{\pderiv{\vd{r}_s}{\vd{q}}}{\de\vd{q}} + \dpd{\pderiv{\vd{r}_s}{\vv{q}}}{\de\vv{q}} + \pderiv{\vd{r}_s}{t} \, \de t
   \label{eq::kine-velocities}
 \end{equation}
-and a \textbf{virtual or Jourdain differential of velocity}
-\begin{equation}
-  \di\vd{r}_s = \dpd{\pderiv{\vd{r}_s}{\vd{q}}}{\de\vd{q}}
-  \label{eq::jourdain-velocities}
-\end{equation}
-that is obtained from the former by setting \(\de\vv{q} = 0\) and \(\de t = 0\).
 By observing \eqref{eq::cart-velocities} we can compute the various terms in
 \(\de\vd{r}_s\), that will be useful in computing the equation for the accelerations.
-We take special note of the term that also appears in \(\di\vd{r}_s\).
 \[\pderiv{\vd{r}_s}{\vd{q}} = \pderiv{\vv{r}_s}{\vv{q}} \qquad
 \pderiv{\vd{r}_s}{\vv{q}} = \pderiv[2]{\vv{r}}{\vv{q}} \cdot \vd{q} + \pderiv{\vv{r}}{\vv{q},t} \qquad
 \pderiv{\vd{r}_s}{t} = \pderiv{\vv{r}}{\vv{q},t} \cdot \vd{q} + \pderiv[2]{\vv{r}}{t}\]
+We also define a \textbf{virtual differential of velocity}
+\begin{equation}
+  \di\vd{r}_s = \dpd{\pderiv{\vd{r}_s}{\vd{q}}}{\de\vd{q}} = \dpd{\pderiv{\vv{r}_s}{\vv{q}}}{\de\vd{q}}
+  \label{eq::jourdain-velocities}
+\end{equation}
+that is obtained from the former by setting \(\de\vv{q} = 0\) and \(\de t = 0\).
 
 We now take \eqref{eq::kine-velocities} and use it to compute the cartesian
 accelerations \(\vdd{r}_s\).
@@ -124,6 +123,7 @@ There is several ways to classify constraints.
     \item \textbf{Geometric:} the constraint does not depend explicity on velocity
     and can therefore be written as \(f(\vv{q},t)\).
     \item \textbf{Kinetic:} the constraint depends explicitly on velocity.
+    \item \textbf{Linear:} the constraint is kinetic and depends linearly on velocity.
     \item \textbf{Integrable:} the constraint is kinetic, but it is
     \emph{equivalent} to a geometric constraint. That is to say, there exists a
     geometric constraint that identifies the same subspace of allowed configurations.
