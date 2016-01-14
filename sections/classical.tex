@@ -89,7 +89,25 @@ accelerations \(\vdd{r}_s\).
 \end{align}
 Here we see that the cartesian accelerations depend linearly on generalised
 accelerations and may have both a quadratic and a linear term in the generalised
-  velocities.
+velocities.
+
+In the most general case:
+
+\[\de \vv{r}^{(n)} = \sum_{k=0}^n \pderiv{\vv{r}^{(n)}}{\vv{q}^{(k)}} \de \vv{q}^{(k)} +
+  \pderiv{\vv{r}^{(n)}}{t} \de t\]
+\[\vv{r}^{(n)} = \D{\vv{r}^{(n-1)}}{t} = \sum_{k=0}^{n-1} \pderiv{\vv{r}^{(n-1)}}{\vv{q}^{(k)}} \vv{q}^{(k+1)} + \pderiv{\vv{r}^{(n-1)}}{t} \]
+\begin{align*}
+  \pderiv{\vv{r}^{(n)}}{\vv{q}^{(m)}} &= \sum_{k=0}^{n-1} \left( \pderiv{\vv{r}^{(n-1)}}{\vv{q}^{(m)},\vv{q}^{(k)}} \vv{q}^{(k+1)} + \pderiv{\vv{r}^{(n-1)}}{\vv{q}^{(k)}} \pderiv{\vv{q}^{(k+1)}}{\vv{q}^{(m)}} \right) + \pderiv{\vv{r}^{(n-1)}}{\vv{q}^{(m)},t} \\
+  \pderiv{\vv{r}^{(n)}}{\vv{q}^{(m)}} &= \sum_{k=0}^{n-1} \left( \pderiv{\vv{r}^{(n-1)}}{\vv{q}^{(m)},\vv{q}^{(k)}} \vv{q}^{(k+1)} + \pderiv{\vv{r}^{(n-1)}}{\vv{q}^{(k)}} \delta_{m,k+1} \right) + \pderiv{\vv{r}^{(n-1)}}{\vv{q}^{(m)},t} \\
+  \pderiv{\vv{r}^{(n)}}{\vv{q}^{(m)}} &= \pderiv{\vv{r}^{(n-1)}}{\vv{q}^{(m-1)}} + \sum_{k=0}^{n-1} \pderiv{\vv{r}^{(n-1)}}{\vv{q}^{(m)},\vv{q}^{(k)}} \vv{q}^{(k+1)} + \pderiv{\vv{r}^{(n-1)}}{\vv{q}^{(m)},t}
+\end{align*}
+
+I would like to find an expression of this in terms solely of partial derivatives by \(q\) and \(t\). Moreover, it should be possible to prove that \[\frac{\partial r^{(n)}}{\partial q^{(m)}} = \begin{cases} 0 & \text{if } m > n \\ \\ \dfrac{\partial r}{\partial q} & \text{if } m = n\end{cases}\]
+
+\[\frac{\partial r^{(n)}}{\partial q^{(n)}} = \sum_{k=0}^{n-1} \left( \frac{\partial^2 r^{(n-1)}}{\partial q^{(n)} \partial q^{(k)}} q^{(k+1)} + \frac{\partial r^{(n-1)}}{\partial q^{(k)}} \delta_{n,k+1} \right) + \frac{\partial^2 r^{(n-1)}}{\partial q^{(n)} \partial t}\]
+\[\frac{\partial r^{(n)}}{\partial q^{(n)}} = \sum_{k=0}^{n-1} \frac{\partial r^{(n-1)}}{\partial q^{(k)}} \delta_{n,k+1} = \frac{\partial r^{(n-1)}}{\partial q^{(n-1)}}\]
+
+Applying this recursively we get what we want. For proof that the higher-order derivatives are zero, use induction by assuming it work for \(n-1\). You have to change the first formula to account for higher orders in principle, though.
 
 
 \section{Constraints}
